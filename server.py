@@ -1,4 +1,8 @@
-# Import Flask, render_template, request from the flask framework package
+"""
+Flask web server for the Emotion Detection application.
+It receives text from the web page, analyzes it with Watson NLP,
+and returns the emotion scores and the dominant emotion.
+"""
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
 
@@ -7,9 +11,13 @@ app = Flask("Emotion Detector")
 
 @app.route("/emotionDetector")
 def sent_detector():
-    # Get the text the user typed (sent by mywebscript.js)
+    """
+    Analyze the text sent by the web page and return the emotion
+    scores and the dominant emotion as a readable sentence.
+    Return an error message if the input is blank or invalid.
+    """
     text_to_analyze = request.args.get('textToAnalyze')
- 
+
     # Analyze it with Watson
     response = emotion_detector(text_to_analyze)
 
@@ -35,7 +43,7 @@ def sent_detector():
 
 @app.route("/")
 def render_index_page():
-    # Rendering the index page
+    """Render the main page of the application."""
     return render_template('index.html')
 
 if __name__ == '__main__':
