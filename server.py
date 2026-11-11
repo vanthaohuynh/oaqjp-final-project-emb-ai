@@ -1,5 +1,4 @@
 # Import Flask, render_template, request from the flask framework package
-# Import the sentiment_analyzer function from the package created
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
 
@@ -21,6 +20,10 @@ def sent_detector():
     joy = response['joy']
     sadness = response['sadness']
     dominant_emotion = response['dominant_emotion']
+
+    # NEW: blank or invalid input -> show an error message
+    if dominant_emotion is None:
+        return "Invalid text! Please try again!"
 
     # Build the return in the format being requested:
     return (
