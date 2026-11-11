@@ -2,7 +2,7 @@ import json      # Library to convert JSON text into a Python dictionary
 import requests  # Library to send HTTP requests to the Watson service
 
 def emotion_detector(text_to_analyze):
-    # Address of the Watson BERT sentiment analysis service
+    # Address of the Watson Emotion Detection service
     url ='https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict'
 
     # Header that tells Watson which AI model to use

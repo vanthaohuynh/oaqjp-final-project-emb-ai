@@ -1,4 +1,4 @@
-# Import Flask, render_template, request from the flask pramework package
+# Import Flask, render_template, request from the flask framework package
 # Import the sentiment_analyzer function from the package created
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
